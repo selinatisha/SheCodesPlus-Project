@@ -5,14 +5,29 @@ body {
     rgb(255, 194, 203) 96.2%
   );
 }
+.square {
+  position: relative;
+  box-shadow: 10px 10px 8px #c8c6c6;
+  border-radius: 10px;
+  background: radial-gradient(
+    329px at 3.1% 9.3%,
+    rgb(251, 204, 235) 28.1%,
+    rgba(221, 221, 221, 0.15) 100.7%
+  );
+  margin: 75px 75px;
+  border: 1px solid
+    radial-gradient(
+      329px at 3.1% 9.3%,
+      rgb(251, 204, 235) 28.1%,
+      rgba(221, 221, 221, 0.15) 100.7%
+    );
+  padding: 20px 30px 20px 30px;
+  max-width: 650px;
+}
 form {
   text-align: center;
   margin: 50px 300px 50px 300px;
   list-style: i;
-}
-.square {
-  position: absolute;
-  margin: 0% auto;
 }
 .form-control {
   border: 1px solid #f5dcf8;
@@ -36,6 +51,17 @@ button {
   border: #f1b2fa;
   background: #f1b2fa;
 }
+.btn-info {
+  color: #ffff;
+  border: 1px solid rgb(226, 139, 229);
+  background-color: rgb(226, 139, 229);
+}
+.btn-info:hover {
+  cursor: pointer;
+  color: #ffff;
+  border: #f1b2fa;
+  background: #f1b2fa;
+}
 .first {
   color: #fcf1fd;
   font-size: xx-large;
@@ -48,12 +74,19 @@ button {
   font-size: large;
   position: relative;
   left: 40px;
+  margin: 0% auto;
 }
 div.sun {
-  font-size: xx-large;
   position: relative;
-  left: 460px;
+  font-size: xx-large;
+  left: 300px;
   color: rgb(255, 220, 80);
+  background-color: rgba(255, 250, 240, 0.5);
+  border-radius: 50px;
+  box-shadow: 10px 10px 8px #c8c6c6;
+  padding: 10px;
+  max-width: 65px;
+  text-align: center;
 }
 .third {
   color: #fcf1fd;
@@ -77,24 +110,6 @@ div.sun {
   right: -450px;
 }
 
-.square {
-  position: relative;
-  box-shadow: 10px 10px 8px #c8c6c6;
-  border-radius: 10px;
-  background: radial-gradient(
-    329px at 3.1% 9.3%,
-    rgb(251, 204, 235) 28.1%,
-    rgba(221, 221, 221, 0.15) 100.7%
-  );
-  margin: 75px 75px;
-  border: 1px solid
-    radial-gradient(
-      329px at 3.1% 9.3%,
-      rgb(251, 204, 235) 28.1%,
-      rgba(221, 221, 221, 0.15) 100.7%
-    );
-  padding: 20px 30px 20px 30px;
-}
 .col {
   position: relative;
   border: 1px solid

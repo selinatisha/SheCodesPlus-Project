@@ -22,27 +22,27 @@ let currentdate = document.querySelector("#current-date");
 currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getMinutes()}`;
 
 // Variables
-let apiKey = "32841bf58a0117b2a6d2f3dbd1f1115f";
+let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
 // 4. Function to update temperature
 function showTemperature(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let humid = Math.round(response.data.main.humidity);
+  let temperature = Math.round(response.data.temperature.current);
+  let humid = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
+  let weatherDescription = response.data.condition.description;
   let temperatureElement = document.querySelector("#current-temp");
-  let description = document.querySelector("#temperature-description");
+  let descriptionElement = document.querySelector("#temperature-description");
   let humidElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   temperatureElement.innerHTML = `${temperature}°C`;
-  description.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = `${weatherDescription}`;
   humidElement.innerHTML = `Humidity: ${humid}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
 }
 
 // 3. function to update elements with new information
 function updateInput(input, city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
   input.innerHTML = Math.round(showTemperature);
   let cityElement = document.querySelector("#current-city");

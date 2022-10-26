@@ -26,18 +26,22 @@ let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
 // 4. Function to update temperature
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.temperature.current);
   let humid = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
   let weatherDescription = response.data.condition.description;
+  let iconUrl = response.data.condition.icon_url;
   let temperatureElement = document.querySelector("#current-temp");
   let descriptionElement = document.querySelector("#temperature-description");
   let humidElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#WeatherIcon");
   temperatureElement.innerHTML = `${temperature}°C`;
   descriptionElement.innerHTML = `${weatherDescription}`;
   humidElement.innerHTML = `Humidity: ${humid}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
+  iconElement.src = `${iconUrl}`;
 }
 
 // 3. function to update elements with new information

@@ -19,6 +19,7 @@ function current(date) {
 }
 let weekday = current(currentTime);
 let currentdate = document.querySelector("#current-date");
+// console.log("hej" + weekday + currentTime.getHours() + currentTime.getMinutes());
 currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getMinutes()}`;
 
 // Variables
@@ -27,6 +28,7 @@ let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 // 4. Function to update temperature
 function showTemperature(response) {
   console.log(response.data);
+  let city = response.data.city;
   let temperature = Math.round(response.data.temperature.current);
   let humid = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
@@ -37,6 +39,8 @@ function showTemperature(response) {
   let humidElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#WeatherIcon");
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = city;
   temperatureElement.innerHTML = `${temperature}°C`;
   descriptionElement.innerHTML = `${weatherDescription}`;
   humidElement.innerHTML = `Humidity: ${humid}%`;
@@ -49,14 +53,11 @@ function updateInput(input, city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
   input.innerHTML = Math.round(showTemperature);
-  let cityElement = document.querySelector("#current-city");
-  cityElement.innerHTML = city;
 }
 
 // 2. function to get new information
 function searchInput(event) {
   let input = document.querySelector("#inputCity");
-  console.log(input);
   let city = input.value;
   updateInput(input, city);
 }
@@ -65,3 +66,17 @@ function searchInput(event) {
 let button = document.querySelector("#search-button");
 button.addEventListener("click", searchInput);
 //selle2
+let infoButton = document.querySelector("#current-location-button");
+infoButton.addEventListener("click", getLocation);
+
+// 2. function to get new information
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
+function retrievePosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let url = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  axios.get(`${url}&appid=${apiKey}`).then(showTemperature);
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://kit.fontawesome.com/93ecc46a5c.js"
       crossorigin="anonymous"
@@ -20,71 +20,94 @@
   </head>
   <body>
     <div class="square">
-   <div class="row g-3 align-items-center">
-  <div class="col-auto">
-    <label for="inputPassword6" class="col-form-label"></label>
-  </div>
-  <div class="col-auto">
-    <input placeholder="Enter City" type="text" id="inputCity" class="form-control"  aria-describedby="passwordHelpInline">
-  </div>
-  <div class="col-auto">
-    <span id="passwordHelpInline" class="form-text">
-    </span>
-  </div>
-</div>
-        <button type="button" class="btn btn-danger" id="search-button">Search</button>
-        <button type="button" class="btn btn-info" id="#current-location-button">Info</button>
-        <section class="current">
-          <ul class="today">
-            <li class="first" id="current-temp">18°</li>
-            <li class="second" id="current-date">Thursday 20:00</li>
-            <img class="sun" id="WeatherIcon" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png" alt="">
-            <li class="third" id="current-city">Malmö</li>
-          </ul>
-          <ul class="today2">
-            <li class="description" id="temperature-description">clear</li>
-            <li class="humid" id="humidity">Humidity: %</li>
-            <li class="windSpeed"id="wind">Wind: <span id="Wind"></span> km/h</li>
-          </ul>
-        </section>
-        <hr />
-        <div class="container">
-          <div class="row align-items-start">
-            <div class="col">
-              Wed
-              <div class="emoji"><i class="fa-solid fa-sun"></i></div>
-              <div class="temp">18°/ <b>15°</b></div>
-            </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="inputPassword6" class="col-form-label"></label>
+        </div>
+        <div class="col-auto">
+          <input
+            placeholder="Enter City"
+            type="text"
+            id="inputCity"
+            class="form-control"
+            aria-describedby="passwordHelpInline"
+          />
+        </div>
+        <div class="col-auto">
+          <span id="passwordHelpInline" class="form-text"> </span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-danger" id="search-button">
+        Search
+      </button>
+      <button type="button" class="btn btn-info" id="current-location-button">
+        Info
+      </button>
+      <section class="current">
+        <ul class="today">
+          <li class="first" id="current-temp">
+            18<span class="units"> °C</span>
+          </li>
 
-            <div class="col">
-              Thu
-              <div class="emoji"><i class="fa-solid fa-cloud-sun"></i></div>
-              <div class="temp">18°/ <b>15°</b></div>
-            </div>
+          <li class="second" id="current-date">Thursday 20:00</li>
+          <img
+            class="sun"
+            id="WeatherIcon"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+            alt=""
+          />
+          <li class="third" id="current-city">Malmö</li>
+        </ul>
+        <ul class="today2">
+          <li class="description" id="temperature-description">clear</li>
+          <li class="humid" id="humidity">Humidity: %</li>
+          <li class="windSpeed" id="wind">
+            Wind: <span id="Wind"></span> km/h
+          </li>
+        </ul>
+      </section>
+      <hr />
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col">
+            Wed
+            <div class="emoji"><i class="fa-solid fa-sun"></i></div>
+            <div class="temp">18°/ <b>15°</b></div>
+          </div>
 
-            <div class="col">
-              Fri
-              <div class="emoji"><i class="fa-solid fa-cloud-rain"></i></div>
-              <div class="temp">18°/ <b>15°</b></div>
-            </div>
+          <div class="col">
+            Thu
+            <div class="emoji"><i class="fa-solid fa-cloud-sun"></i></div>
+            <div class="temp">18°/ <b>15°</b></div>
+          </div>
 
-            <div class="col">
-              Sat
-              <div class="emoji"><i class="fa-solid fa-cloud"></i></div>
-              <div class="temp">18°/ <b>15°</b></div>
-            </div>
+          <div class="col">
+            Fri
+            <div class="emoji"><i class="fa-solid fa-cloud-rain"></i></div>
+            <div class="temp">18°/ <b>15°</b></div>
+          </div>
 
-            <div class="col">
-              Sun
-              <div class="emoji"><i class="fa-solid fa-sun"></i></div>
-              <div class="temp">18°/ <b>15°</b></div>
-            </div>
+          <div class="col">
+            Sat
+            <div class="emoji"><i class="fa-solid fa-cloud"></i></div>
+            <div class="temp">18°/ <b>15°</b></div>
+          </div>
+
+          <div class="col">
+            Sun
+            <div class="emoji"><i class="fa-solid fa-sun"></i></div>
+            <div class="temp">18°/ <b>15°</b></div>
           </div>
         </div>
-        <hr />
-        <footer> <a href="https://github.com/selinatisha/SheCodesPlus-Project">Open-source code</a> by Selina Andersson</footer>
       </div>
-      <script src="index.js"></script>
+      <hr />
+      <footer>
+        <a href="https://github.com/selinatisha/SheCodesPlus-Project"
+          >Open-source code</a
+        >
+        by Selina Andersson
+      </footer>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

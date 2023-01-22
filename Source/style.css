@@ -62,9 +62,13 @@ button {
   border: #f1b2fa;
   background: #f1b2fa;
 }
+ul.today {
+  margin: 0% auto;
+}
+
 .first {
   color: #fcf1fd;
-  font-size: xx-large;
+  font-size: xxx-large;
   position: relative;
   left: 40px;
 }
@@ -76,19 +80,9 @@ button {
   left: 40px;
   margin: 0% auto;
 }
-div.sun {
-  position: relative;
-  font-size: xx-large;
-  left: 300px;
-  color: rgb(255, 220, 80);
-  background-color: rgba(255, 250, 240, 0.5);
-  border-radius: 50px;
-  box-shadow: 10px 10px 8px #c8c6c6;
-  padding: 10px;
-  max-width: 65px;
-  text-align: center;
-}
+
 .third {
+  text-transform: capitalize;
   color: #fcf1fd;
   font-weight: 500;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -99,10 +93,14 @@ div.sun {
 
   left: 40px;
 }
+.description {
+  text-transform: capitalize;
+  top: 50px;
+}
 .humidity {
   position: relative;
   top: -50px;
-  right: -450px;
+  right: -400px;
 }
 .wind {
   position: relative;

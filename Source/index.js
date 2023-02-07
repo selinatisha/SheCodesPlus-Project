@@ -25,6 +25,30 @@ currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getM
 // Variables
 let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
+function displayForecast() {
+  let forecatsElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = ["Thu", "Fri", "Sat"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+  <div class="container" id="forecast">
+        <div class="row align-items-start">
+          <div class="col">
+            ${day}
+            <div class="emoji"><i class="fa-solid fa-sun"></i></div>
+            <div class="temp"><b>18</b>/ 15°</div>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecatsElement.innerHTML = forecastHTML;
+}
+
 // 4. Function to update temperature
 function showTemperature(response) {
   console.log(response.data);
@@ -68,6 +92,8 @@ button.addEventListener("click", searchInput);
 //selle2
 let infoButton = document.querySelector("#current-location-button");
 infoButton.addEventListener("click", getLocation);
+
+displayForecast();
 
 // 2. function to get new information
 function getLocation() {

@@ -25,7 +25,8 @@ currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getM
 // Variables
 let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row align-items-start">`;
@@ -54,6 +55,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coords) {
+  console.log(coords);
+  let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // 4. Function to update temperature
@@ -96,8 +105,6 @@ function searchInput(event) {
 }
 
 //1.
-
-displayForecast();
 
 let button = document.querySelector("#search-button");
 button.addEventListener("click", searchInput);

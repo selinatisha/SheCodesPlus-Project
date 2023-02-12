@@ -26,27 +26,34 @@ currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getM
 let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
 function displayForecast() {
-  let forecatsElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
-  let forecastDays = ["Thu", "Fri", "Sat"];
-  forecastDays.forEach(function (day) {
+  let forecastHTML = `<div class="row align-items-start">`;
+  let forecastDays = ["Thu", "Fri", "Sat", "Sun"];
+  forecastDays.forEach(function (days) {
     forecastHTML =
       forecastHTML +
-      ` 
-  <div class="container" id="forecast">
-        <div class="row align-items-start">
-          <div class="col">
-            ${day}
-            <div class="emoji"><i class="fa-solid fa-sun"></i></div>
-            <div class="temp"><b>18</b>/ 15°</div>
-          </div>
-        </div>`;
+      `
+    <div class="col">
+      <div class="forecast-day">${days}</div>
+      <div class="emoji">
+        <img
+          class="forecastEmoji"
+          id="forecastWeatherIcon"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+          alt=""
+          width="42"
+        />
+      </div>
+      <div class="temp">
+        <span class="forecast-temperature-max">18 °</span>/
+        <span class="forecast-temperature-min">18 °</span>
+      </div>
+    </div>`;
   });
 
   forecastHTML = forecastHTML + `</div>`;
-
-  forecatsElement.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 // 4. Function to update temperature
@@ -70,6 +77,8 @@ function showTemperature(response) {
   humidElement.innerHTML = `Humidity: ${humid}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
   iconElement.src = `${iconUrl}`;
+
+  getForecast(response.data.coordinates);
 }
 
 // 3. function to update elements with new information
@@ -87,6 +96,9 @@ function searchInput(event) {
 }
 
 //1.
+
+displayForecast();
+
 let button = document.querySelector("#search-button");
 button.addEventListener("click", searchInput);
 //selle2

@@ -132,6 +132,10 @@ ul.today {
 ul {
   list-style: none;
 }
+.forecastEmoji {
+  font-size: large;
+}
+
 footer {
   text-align: center;
 }

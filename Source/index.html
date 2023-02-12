@@ -67,12 +67,23 @@
         </ul>
       </section>
       <hr />
-      <div class="container" id="forecast">
+      <div class="weather-forecast" id="forecast">
         <div class="row align-items-start">
           <div class="col">
-            Wed
-            <div class="emoji"><i class="fa-solid fa-sun"></i></div>
-            <div class="temp"><b>18</b>/ 15°</div>
+            <div class="forecast-day">Thu</div>
+            <div class="emoji">
+              <img
+                class="forecastEmoji"
+                id="forecastWeatherIcon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+                alt=""
+                width="42"
+              />
+            </div>
+            <div class="temp">
+              <span class="forecast-temperature-max">18 °</span>/
+              <span class="forecast-temperature-min">18 °</span>
+            </div>
           </div>
         </div>
       </div>

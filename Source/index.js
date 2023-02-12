@@ -22,35 +22,51 @@ let currentdate = document.querySelector("#current-date");
 // console.log("hej" + weekday + currentTime.getHours() + currentTime.getMinutes());
 currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getMinutes()}`;
 
+function formatDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 // Variables
 let apiKey = "528fa09953b7eb5b52fb10a3t4oae266";
 
+// 4. Function to update forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row align-items-start">`;
-  let forecastDays = ["Thu", "Fri", "Sat", "Sun"];
-  forecastDays.forEach(function (days) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col">
-      <div class="forecast-day">${days}</div>
+      <div class="forecast-day">${formatDay(forecastDay.time)}</div>
       <div class="emoji">
         <img
           class="forecastEmoji"
           id="forecastWeatherIcon"
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDay.condition.icon
+          }.png"
           alt=""
           width="42"
         />
       </div>
       <div class="temp">
-        <span class="forecast-temperature-max">18 °</span>/
-        <span class="forecast-temperature-min">18 °</span>
+        <span class="forecast-temperature-max">${Math.round(
+          forecastDay.temperature.maximum
+        )}°</span>/
+        <span class="forecast-temperature-min">${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span>
       </div>
     </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

@@ -41,29 +41,31 @@
         Search
       </button>
       <button type="button" class="btn btn-info" id="current-location-button">
-        Info
+        📍
       </button>
       <section class="current">
         <ul class="today">
+          <div class="image">
+            <img
+              class="sun"
+              id="WeatherIcon"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+              alt=""
+            />
+          </div>
           <li class="first" id="current-temp">
             18<span class="units"> °C</span>
           </li>
 
-          <li class="second" id="current-date">Thursday 20:00</li>
-          <img
-            class="sun"
-            id="WeatherIcon"
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-            alt=""
-          />
           <li class="third" id="current-city">Malmö</li>
-        </ul>
-        <ul class="today2">
-          <li class="description" id="temperature-description">clear</li>
-          <li class="humid" id="humidity">Humidity: %</li>
-          <li class="windSpeed" id="wind">
-            Wind: <span id="Wind"></span> km/h
-          </li>
+          <li class="second" id="current-date">Thursday 20:00</li>
+          <ul class="today2">
+            <li class="description" id="temperature-description">clear</li>
+            <li class="humid" id="humidity">Humidity: %</li>
+            <li class="windSpeed" id="wind">
+              Wind: <span id="Wind"></span> km/h
+            </li>
+          </ul>
         </ul>
       </section>
       <hr />

@@ -6,7 +6,6 @@ body {
   );
 }
 .square {
-  position: relative;
   box-shadow: 10px 10px 8px #c8c6c6;
   border-radius: 10px;
   background: radial-gradient(
@@ -14,7 +13,7 @@ body {
     rgb(251, 204, 235) 28.1%,
     rgba(221, 221, 221, 0.15) 100.7%
   );
-  margin: 75px 75px;
+  margin: 50px 50px;
   border: 1px solid
     radial-gradient(
       329px at 3.1% 9.3%,
@@ -23,6 +22,7 @@ body {
     );
   padding: 20px 30px 20px 30px;
   max-width: 650px;
+  min-width: 600px;
 }
 form {
   text-align: center;
@@ -42,7 +42,7 @@ button {
   display: block;
   position: relative;
   top: -40px;
-  right: -320px;
+  right: -260px;
   transition: all 200ms ease;
   box-shadow: rgba(37, 39, 89, 0.08) 0p;
 }
@@ -63,35 +63,36 @@ button {
   background: #f1b2fa;
 }
 ul.today {
-  margin: 0% auto;
+  display: inline;
 }
 
 .first {
   color: #fcf1fd;
   font-size: xxx-large;
   position: relative;
-  left: 40px;
+  left: 50px;
+  top: -45px;
 }
 .second {
   position: relative;
   color: #fcf1fd;
   font-size: large;
   position: relative;
-  left: 40px;
+  left: 300px;
   margin: 0% auto;
+  top: -135px;
 }
 
 .third {
   text-transform: capitalize;
   color: #fcf1fd;
-  font-weight: 500;
+  font-weight: 30;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 90px;
-  top: -50px;
+  font-size: 60px;
   position: relative;
-
-  left: 40px;
+  top: -130px;
+  left: 300px;
 }
 .description {
   text-transform: capitalize;
@@ -129,13 +130,16 @@ ul.today {
   font-size: x-large;
 }
 
-ul {
-  list-style: none;
-}
 .forecastEmoji {
   font-size: large;
 }
-
+hr {
+  margin: 0% auto;
+}
+ul {
+  list-style: none;
+  opacity: 0.7;
+}
 footer {
   text-align: center;
 }

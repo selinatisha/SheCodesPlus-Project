@@ -1,11 +1,14 @@
-let currentTime = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-console.log(currentTime);
-console.log(currentTime.getDay());
-console.log(currentTime.getHours());
-console.log(currentTime.getMinutes());
-
-function current(date) {
   let days = [
     "Sunday",
     "Monday",
@@ -15,17 +18,15 @@ function current(date) {
     "Friday",
     "Saturday",
   ];
-  return days[date.getDay()];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-let weekday = current(currentTime);
-let currentdate = document.querySelector("#current-date");
-// console.log("hej" + weekday + currentTime.getHours() + currentTime.getMinutes());
-currentdate.innerHTML = `${weekday} ${currentTime.getHours()}:${currentTime.getMinutes()}`;
 
-function formatDay(timeStamp) {
-  let date = new Date(timeStamp * 1000);
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   return days[day];
 }
 
@@ -90,6 +91,8 @@ function showTemperature(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let weatherDescription = response.data.condition.description;
   let iconUrl = response.data.condition.icon_url;
+
+  let dateElement = document.querySelector("#current-date");
   let temperatureElement = document.querySelector("#current-temp");
   let descriptionElement = document.querySelector("#temperature-description");
   let humidElement = document.querySelector("#humidity");
@@ -97,6 +100,8 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#WeatherIcon");
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = city;
+
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
   temperatureElement.innerHTML = `${temperature}°C`;
   descriptionElement.innerHTML = `${weatherDescription}`;
   humidElement.innerHTML = `Humidity: ${humid}%`;
@@ -141,3 +146,5 @@ function retrievePosition(position) {
   let url = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(`${url}&appid=${apiKey}`).then(showTemperature);
 }
+
+updateInput(input, "New York");

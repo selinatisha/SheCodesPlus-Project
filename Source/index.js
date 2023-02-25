@@ -109,17 +109,16 @@ function showTemperature(response) {
 }
 
 // 3. function to update elements with new information
-function updateInput(input, city) {
+function updateInput(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
-  input.innerHTML = Math.round(showTemperature);
 }
 
 // 2. function to get new information
-function searchInput(event) {
+function searchInput() {
   let input = document.querySelector("#inputCity");
   let city = input.value;
-  updateInput(input, city);
+  updateInput(city);
 }
 
 //1.
@@ -142,4 +141,5 @@ function retrievePosition(position) {
   axios.get(`${url}&appid=${apiKey}`).then(showTemperature);
 }
 
+updateInput("Madrid");
 displayForecast();

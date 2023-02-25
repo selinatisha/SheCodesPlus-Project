@@ -86,11 +86,6 @@ function getForecast(coords) {
 function showTemperature(response) {
   console.log(response.data);
   let city = response.data.city;
-  let temperature = Math.round(response.data.temperature.current);
-  let humid = Math.round(response.data.temperature.humidity);
-  let windSpeed = Math.round(response.data.wind.speed);
-  let weatherDescription = response.data.condition.description;
-  let iconUrl = response.data.condition.icon_url;
 
   let dateElement = document.querySelector("#current-date");
   let temperatureElement = document.querySelector("#current-temp");
@@ -102,11 +97,13 @@ function showTemperature(response) {
   cityElement.innerHTML = city;
 
   dateElement.innerHTML = formatDate(response.data.time * 1000);
-  temperatureElement.innerHTML = `${temperature}°C`;
-  descriptionElement.innerHTML = `${weatherDescription}`;
-  humidElement.innerHTML = `Humidity: ${humid}%`;
-  windElement.innerHTML = `Wind: ${windSpeed}km/h`;
-  iconElement.src = `${iconUrl}`;
+  temperatureElement.innerHTML = `${Math.round(
+    response.data.temperature.current
+  )}°C`;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidElement.innerHTML = `${Math.round(response.data.temperature.humidity)}%`;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+  iconElement.src = response.data.condition.icon_url;
 
   getForecast(response.data.coordinates);
 }
@@ -133,8 +130,6 @@ button.addEventListener("click", searchInput);
 let infoButton = document.querySelector("#current-location-button");
 infoButton.addEventListener("click", getLocation);
 
-displayForecast();
-
 // 2. function to get new information
 function getLocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
@@ -147,4 +142,4 @@ function retrievePosition(position) {
   axios.get(`${url}&appid=${apiKey}`).then(showTemperature);
 }
 
-updateInput(input, "New York");
+displayForecast();

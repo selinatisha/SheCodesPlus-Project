@@ -1,9 +1,5 @@
 body {
-  background: linear-gradient(
-    179.4deg,
-    rgb(253, 240, 233) 2.2%,
-    rgb(255, 194, 203) 96.2%
-  );
+  background: #f6d6fa;
 }
 .square {
   box-shadow: 10px 10px 8px #c8c6c6;
@@ -98,15 +94,22 @@ ul.today {
   text-transform: capitalize;
   top: 50px;
 }
-.humidity {
+.humidForecast {
   position: relative;
   top: -50px;
   right: -400px;
 }
-.wind {
+span.humid {
+  color: rgb(172, 134, 241);
+}
+.Wind {
   position: relative;
   top: -50px;
   right: -450px;
+}
+
+span.windSpeed {
+  color: rgb(172, 134, 241);
 }
 
 .col {
@@ -142,4 +145,11 @@ ul {
 }
 footer {
   text-align: center;
+}
+
+a {
+  color: #f1b2fa;
+}
+a:hover {
+  color: #eebcf4;
 }
